@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Food Travel</title>
+    
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilocadastro.css' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="{% static 'img/logo.png' %}" alt="Logo Food Travel" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/000000?text=LOGO';"> 
+            <h1 class="site-title">Sobre Nós</h1>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'homepage' %}" class="nav-link">Início</a></li>
+            <li><a href="{% url 'sobre_nos' %}" class="nav-link">Sobre Nós</a></li>
+            <li><a href="{% url 'catalogo1' %}" class="nav-link">Cardápio</a></li>
+            <li><a href="{% url 'horario' %}" class="nav-link">Horário</a></li>
+            <li><a href="{% url 'avaliacoes' %}" class="nav-link">Avaliação</a></li>
+            <li><a href="{% url 'pedido' %}" class="nav-link">Pedido</a></li>
+            <li><a href="{% url 'contato' %}" class="nav-link">Endereço e Contato</a></li>
+            <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="about-section">
+            <h2>Nossa História e Missão</h2>
+            <p>O Food Travel nasceu da paixão por explorar sabores e culturas através da culinária. Nosso objetivo é proporcionar uma experiência gastronômica única, combinando pratos deliciosos com um ambiente acolhedor e familiar.</p>
+            <p>Acreditamos na transparência e na qualidade, desde a seleção dos ingredientes frescos até o atendimento impecável. Nosso espaço é climatizado, aconchegante e conta com uma área de playground para a diversão das crianças, tornando-nos o local ideal para toda a família.</p>
+            <p>Venha nos visitar e embarque nesta viagem de sabores conosco!</p>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Food Travel. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="{% static 'img/icon_facebook.png' %}" alt="Facebook" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=FB';"></a>
+                <a href="#"><img src="{% static 'img/icon_instagram.png' %}" alt="Instagram" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=IG';"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

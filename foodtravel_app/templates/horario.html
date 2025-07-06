@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário de Funcionamento - Food Travel</title>
+    
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilocadastro.css' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="{% static 'img/logo.png' %}" alt="Logo Food Travel" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/000000?text=LOGO';"> 
+            <h1 class="site-title">Horário de Funcionamento</h1>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'homepage' %}" class="nav-link">Início</a></li>
+            <li><a href="{% url 'sobre_nos' %}" class="nav-link">Sobre Nós</a></li>
+            <li><a href="{% url 'catalogo1' %}" class="nav-link">Cardápio</a></li>
+            <li><a href="{% url 'horario' %}" class="nav-link">Horário</a></li>
+            <li><a href="{% url 'avaliacoes' %}" class="nav-link">Avaliação</a></li>
+            <li><a href="{% url 'pedido' %}" class="nav-link">Pedido</a></li>
+            <li><a href="{% url 'contato' %}" class="nav-link">Endereço e Contato</a></li>
+            <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="hours-section">
+            <h2>Nosso Horário de Atendimento</h2>
+            <p>Estamos prontos para te servir com os melhores pratos e o melhor atendimento!</p>
+            <ul class="hours-list">
+                <li><strong>Segunda a Sexta:</strong> 11:30h - 14:30h e 18:00h - 23:00h</li>
+                <li><strong>Sábados:</strong> 12:00h - 00:00h</li>
+                <li><strong>Domingos e Feriados:</strong> 12:00h - 22:00h</li>
+            </ul>
+            <p>Para pedidos de delivery, o horário pode variar. Consulte nosso aplicativo ou ligue para mais informações.</p>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Food Travel. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="{% static 'img/icon_facebook.png' %}" alt="Facebook" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=FB';"></a>
+                <a href="#"><img src="{% static 'img/icon_instagram.png' %}" alt="Instagram" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=IG';"></a>
+            </div>
+        </div>
+    </footer>
+</body>
