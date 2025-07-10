@@ -2,9 +2,9 @@ pipeline {
 
     agent any 
     environment {
-        PYTHON_HOME = tool 'Python 3.9' 
+       PYTHON_EXECUTABLE_DIR = 'C:\Users\Adriele\AppData\Local\Microsoft\WindowsApps\python'
         
-        PATH = "${PYTHON_HOME}\\Scripts;${env.PATH}"
+        PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}\\Scripts;${env.PATH}"
         
         
         SONAR_ORGANIZATION = 'adriele-mesquita'
