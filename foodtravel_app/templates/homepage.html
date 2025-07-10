@@ -4,31 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Travel - Uma Viagem gastronômica</title>
+    <title>Food Travel - Seu Destino Gastronômico</title>
     
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilocadastro.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <style>
+        
+        body { font-family: "Oswald", "Lato", "mv boli", sans-serif; }
+    </style>
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <img src="{% static 'img/logo.png' %}" alt="Logo Food Travel" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/150x50/cccccc/000000?text=LOGO';"> 
+        <div class="container header-content">
+            <img src="{% static 'img/food travel circulo.png' %}" alt="Logo Food Travel" class="logo"> 
             <h1 class="site-title">Food Travel</h1>
         </div>
     </header>
 
     <nav class="navbar">
-        <ul class="nav-links">
+        <ul class="nav-links container">
             <li><a href="{% url 'homepage' %}" class="nav-link">Início</a></li>
             <li><a href="{% url 'sobre_nos' %}" class="nav-link">Sobre Nós</a></li>
             <li><a href="{% url 'catalogo1' %}" class="nav-link">Cardápio</a></li>
-            <li><a href="{% url 'horario' %}" class="nav-link">Horário</a></li> 
+            <li><a href="{% url 'horario' %}" class="nav-link">Horário</a></li>
             <li><a href="{% url 'avaliacoes' %}" class="nav-link">Avaliação</a></li>
-            <li><a href="{% url 'pedido' %}" class="nav-link">Pedido</a></li> 
+            <li><a href="{% url 'pedido' %}" class="nav-link">Pedido</a></li>
             <li><a href="{% url 'contato' %}" class="nav-link">Endereço e Contato</a></li>
             <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
         </ul>
@@ -36,50 +41,62 @@
 
     <main class="main-content">
         <section id="inicio" class="hero-section">
-            <h2>Bem-vindo ao Food Travel!</h2>
-            <p>Descubra uma jornada de sabores. Nosso restaurante é mais do que um local para saciar a fome, é um destino onde a arte da culinária se encontra com o luxo e o encanto.</p>
-            <p>Temos comidas de boteco, sobremesas e não pode faltar aquela coquinha gelada para a família toda.</p>
-            <p>Explore nossos deliciosos pratos e faça seu pedido!</p>
-            {% if produtos_em_destaque %}
-                <div class="featured-products">
-                    <h3>Produtos em Destaque</h3>
-                    <div class="products-grid">
-                        {% for produto in produtos_em_destaque %}
-                            <div class="product-card">
-                                <img src="{% static 'img/'|add:produto.nome|lower|cut:" "|add:".png" %}" alt="{{ produto.nome }}" class="product-image" onerror="this.onerror=null;this.src='https://placehold.co/200x150/cccccc/000000?text=Produto';">
-                                <h4>{{ produto.nome }}</h4>
-                                <p>{{ produto.descricao }}</p>
-                                <p class="price">R$ {{ produto.preco|stringformat:"%.2f" }}</p>
-                                <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
-                            </div>
-                        {% endfor %}
+            <div class="container hero-container">
+                <h2>Bem-vindo ao Food Travel!</h2>
+                <p>Descubra uma viagem de sabores. </p>
+                <p>Temos comidas de boteco, sobremesas e não pode faltar aquela coquinha gelada para a família toda.</p>
+                <p>Explore nossos deliciosos pratos e faça seu pedido!</p>
+                {% if produtos_em_destaque %}
+                    <div class="featured-products-grid">
+                        <h3>Produtos em Destaque</h3>
+                        <div class="products-container">
+                            {% for produto in produtos_em_destaque %}
+                                <div class="product-card">
+                                    <img src="{% static 'img/'|add:produto.nome|lower|cut:" "|add:".png" %}" alt="{{ produto.nome }}" class="product-image" onerror="this.onerror=null;this.src='https://placehold.co/200x150/cccccc/000000?text=Produto';">
+                                    <h4>{{ produto.nome }}</h4>
+                                    <p>{{ produto.descricao }}</p>
+                                    <p class="price">R$ {{ produto.preco|stringformat:"%.2f" }}</p>
+                                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-            {% else %}
-                <p>Nenhum produto em destaque no momento.</p>
-            {% endif %}
-        </section>
-        <section id="sobre-nos" class="about-section">
-            <h3>Sobre Nós</h3>
-            <p>O Food Travel é transparente em suas ações, contendo informações sobre avaliações de clientes, sobre a empresa, entre outras informações. Contamos também com um espaço físico climatizado e ambiente aconchegante e com uma área de playground para as crianças se divertirem.</p>
-            <p>Acesse nosso site e conheça um pouco mais sobre nós e nossas variedades de pratos, na seção cardápio.</p>
+                {% else %}
+                    <p>Nenhum produto em destaque no momento.</p>
+                {% endif %}
+            </div>
         </section>
 
-        <section id="cardapio" class="menu-section">
-            <h3>Nosso Cardápio</h3>
-            <p>Uma vasta seleção de pratos para todos os gostos.</p>
-            <a href="{% url 'catalogo1' %}" class="btn-primary">Ver Cardápio Completo</a>
+        <section id="sobre-nos-preview" class="section-preview">
+            <div class="container">
+                <h3>Sobre Nós</h3>
+                <p>O Food Travel é transparente em suas ações, contendo informações sobre avaliações de clientes, sobre a empresa, entre outras informações. Contamos também com um espaço físico climatizado e ambiente aconchegante e com uma área de playground para as crianças se divertirem.</p>
+                <p>Acesse nosso site e conheça um pouco mais sobre nós e nossas variedades de pratos, na seção cardápio.</p>
+                <img src="{% static 'img/restaurante_interior.jpg' %}" alt="Interior do Restaurante" class="section-image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/000000?text=Interior+Restaurante';">
+                <a href="{% url 'sobre_nos' %}" class="btn-primary">Saiba Mais</a>
+            </div>
         </section>
+
+        <section id="cardapio-preview" class="section-preview">
+            <div class="container">
+                <h3>Nosso Cardápio</h3>
+                <p>Uma vasta seleção de pratos para todos os gostos.</p>
+                <img src="{% static 'img/images (4).jpg' %}" alt="Pratos Variados" class="section-image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/000000?text=Pratos';">
+                <a href="{% url 'catalogo1' %}" class="btn-primary">Ver Cardápio Completo</a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-content">
             <p>&copy; 2025 Food Travel. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="#"><img src="{% static 'img/icon_facebook.png' %}" alt="Facebook" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=FB';"></a>
-                <a href="#"><img src="{% static 'img/icon_instagram.png' %}" alt="Instagram" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/000000?text=IG';"></a>
+                <a href="#"><img src="{% static 'img/gp.png' %}"></a>
             </div>
         </div>
     </footer>
+<script src="{% static 'js/main.js' %}"></script> 
 </body>
 </html>
