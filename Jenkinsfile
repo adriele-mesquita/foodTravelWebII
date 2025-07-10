@@ -2,9 +2,9 @@ pipeline {
 
     agent any 
     environment {
-       PYTHON_EXECUTABLE_DIR = 'C:/Users/Adriele/AppData/Local/Microsoft/WindowsApps/python'
+       PYTHON_EXECUTABLE_DIR = 'C:\Users\Adriele\AppData\Local\Microsoft\WindowsApps\'
         
-        PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}//Scripts;${env.PATH}"
+        PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}\\Scripts;${env.PATH}"
         
         
         SONAR_ORGANIZATION = 'adriele-mesquita'
