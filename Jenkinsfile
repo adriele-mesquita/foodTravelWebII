@@ -2,7 +2,7 @@ pipeline {
 
     agent any 
     environment {
-        PYTHON_HOME = tool 'Python 3.13.5' 
+        PYTHON_HOME = tool 'Python 3.9' 
         
         PATH = "${PYTHON_HOME}\\Scripts;${env.PATH}"
         
