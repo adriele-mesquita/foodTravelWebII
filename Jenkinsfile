@@ -3,6 +3,7 @@ pipeline {
     agent any 
     environment {
        PYTHON_EXECUTABLE_DIR = 'C:/Users/Adriele/AppData/Local/Programs/Python/Python313'
+       SONAR_SCANNER_HOME = 'C:/Program Files/sonar-scanner-7.1.0.4889-windows-x64/bin' 
         
         PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}//Scripts;${env.PATH}"
         
