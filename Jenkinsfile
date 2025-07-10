@@ -5,7 +5,8 @@ pipeline {
        PYTHON_EXECUTABLE_DIR = 'C:/Users/Adriele/AppData/Local/Programs/Python/Python313'
        SONAR_SCANNER_HOME = 'C:/Program Files/sonar-scanner-7.1.0.4889-windows-x64/bin' 
         
-        PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}//Scripts;${env.PATH}"
+        
+        PATH = "${PYTHON_EXECUTABLE_DIR};${PYTHON_EXECUTABLE_DIR}/Scripts;${SONAR_SCANNER_HOME};${env.PATH}" 
         
         
         SONAR_ORGANIZATION = 'adriele-mesquita'
